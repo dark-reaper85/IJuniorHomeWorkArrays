@@ -10,35 +10,45 @@ namespace MaxElement
     {
         static void Main(string[] args)
         {
-            int[,] anyArray = new int[10, 10];
+            int[,] array = new int[10, 10];
             int maxValue = int.MinValue;
             int iIndexOfMaxValue = 0;
             int jIndexOfMaxValue = 0;
             Random rand = new Random();
-            Console.WriteLine("Базовый массив:");
-            for (int i = 0; i < anyArray.GetLength(0); i++)
+
+            Console.WriteLine("Базовый массив:\n");
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < anyArray.GetLength(1); j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    anyArray[i, j] = rand.Next(1, 100);
-                    if ( anyArray[i,j] >= maxValue)
-                    {
-                        maxValue = anyArray[i, j];
-                        iIndexOfMaxValue = i;
-                        jIndexOfMaxValue = j;
-                    }
-                    Console.Write(anyArray[i, j] + " ");
+                    array[i, j] = rand.Next(1, 100);
+                    Console.Write(array[i, j] + " ");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("Максимальный элемент массива = " + maxValue + "\nРасположен по адресу: " + iIndexOfMaxValue + "|" + jIndexOfMaxValue + ".");
-            anyArray[iIndexOfMaxValue, jIndexOfMaxValue] = 0;
-            Console.WriteLine("Измененный массив:");
-            for (int i = 0; i < anyArray.GetLength(0); i++)
+
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < anyArray.GetLength(1); j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.Write(anyArray[i, j] + " ");
+                    if (array[i, j] >= maxValue)
+                    {
+                        maxValue = array[i, j];
+                        iIndexOfMaxValue = i;
+                        jIndexOfMaxValue = j;
+                    }
+                }
+            }
+            Console.WriteLine("\nМаксимальный элемент массива = " + maxValue + "\nРасположен по адресу: " + iIndexOfMaxValue + "|" + jIndexOfMaxValue + ".\n");
+            
+            array[iIndexOfMaxValue, jIndexOfMaxValue] = 0;
+            Console.WriteLine("Измененный массив:\n");
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.Write(array[i, j] + " ");
                 }
                 Console.WriteLine();
             }

@@ -18,19 +18,30 @@ namespace IJuniorHomeWorkArrays
             int specificCol = 0;
             int sumOfSpecificRow = 0;
             int productOfSpeccificCol = 1;
+
+            Console.WriteLine("Исходный массив");
             for (int i = 0; i < rowsCount; i++)
             {
                 for (int j = 0; j < colsCount; j++)
                 {
                     anyArray[i, j] = rand.Next(0, 9);
                     Console.Write(anyArray[i,j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            for (int i = 0; i < rowsCount; i++)
+            {
+                for (int j = 0; j < colsCount; j++)
+                {
                     if (i == specificRow)
                         sumOfSpecificRow += anyArray[i, j];
                     if (j == specificCol)
                         productOfSpeccificCol *= anyArray[i, j];
                 }
-                Console.WriteLine();
             }
+
+            Console.WriteLine();
             Console.WriteLine("Сумма значений " + (specificRow + 1) + " строки = "+ sumOfSpecificRow);
             Console.WriteLine("Произведение значений " + (specificCol + 1) + " столбца = " + productOfSpeccificCol);
         }
