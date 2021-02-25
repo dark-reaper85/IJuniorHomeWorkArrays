@@ -12,7 +12,6 @@ namespace DinamicArray
         {
             int[] array = new int[0];
             int[] tempArray = null;
-            int iterationNumber = 0;
             string userInput = null;
             bool isWorking = true;
             int sum = 0;
@@ -32,6 +31,7 @@ namespace DinamicArray
                         sum += array[i];
 
                     Console.WriteLine("Сумма введенных чисел равна: " + sum);
+                    sum = 0;
                 }
                 else
                 {
@@ -39,11 +39,9 @@ namespace DinamicArray
                     for (int i = 0; i < array.Length; i++)
                         tempArray[i] = array[i];
 
-                    tempArray[iterationNumber] = Convert.ToInt32(userInput);
+                    tempArray[array.Length] = Convert.ToInt32(userInput);
                     
                     array = tempArray;
-                    
-                    iterationNumber++;
                 }
             }
         }

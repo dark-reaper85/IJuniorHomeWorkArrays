@@ -30,15 +30,14 @@ namespace IJuniorHomeWorkArrays
                 Console.WriteLine();
             }
 
-            for (int i = 0; i < rowsCount; i++)
+            for ( int j = 0; j < colsCount; j++)
             {
-                for (int j = 0; j < colsCount; j++)
-                {
-                    if (i == specificRow)
-                        sumOfSpecificRow += anyArray[i, j];
-                    if (j == specificCol)
-                        productOfSpeccificCol *= anyArray[i, j];
-                }
+                sumOfSpecificRow += anyArray[specificRow, j];
+            }
+
+            for ( int i = 0; i < rowsCount; i++)
+            {
+                productOfSpeccificCol *= anyArray[i, specificCol];
             }
 
             Console.WriteLine();
